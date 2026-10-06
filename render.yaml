@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: thyria
+    runtime: node
+    plan: free
+    region: oregon
+    branch: main
+    # --prod=false keeps devDependencies (vite, nitro) when Render sets NODE_ENV=production
+    buildCommand: pnpm install --frozen-lockfile --prod=false && pnpm build
+    startCommand: pnpm start
+    healthCheckPath: /
+    envVars:
+      - key: NODE_VERSION
+        value: "22.12.0"

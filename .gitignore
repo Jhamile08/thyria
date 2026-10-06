@@ -44,3 +44,8 @@ coverage/
 *.temp
 *.swp
 *.swo
+
+# Nitro / TanStack Start build output
+
+.output/
+.nitro/

@@ -12,4 +12,10 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
   },
+  nitro: {
+    // Render runs a long-lived Node process, not a Cloudflare worker. Emits
+    // .output/server/index.mjs (started by `pnpm start`) plus .output/public.
+    // Lovable builds ignore this — LOVABLE_NITRO_PRESET still pins Cloudflare there.
+    preset: "node-server",
+  },
 });
